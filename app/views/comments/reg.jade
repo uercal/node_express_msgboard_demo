@@ -1,0 +1,31 @@
+extends layout
+
+block content
+
+    script.
+      $(document).ready(function(c) {
+      $('.close').on('click', function(c){
+      $('.login-form').fadeOut('slow', function(c){
+      $('.login-form').remove();
+      });
+      });
+      });
+
+    h1(style='color:red;font-size:80%;')  #{error}
+    h1  Reg Form
+    .login-form
+      .close  
+      .head-info
+        label.lbl-1  
+        label.lbl-2  
+        label.lbl-3(onclick="window.location.href='/comment'")
+      .clear  
+      .avtar
+        img(src='/comments/images/avtar.png')
+      form(action='/comment/reg' method='post')
+        .text
+          input(type='text', name='username', placeholder='Username', onfocus="this.value = '';", onblur="if (this.value == '') {this.value = 'Username';}")
+        .key
+          input(type='password', name='password', placeholder='Password', onfocus="this.value = '';", onblur="if (this.value == '') {this.value = 'Password';}")
+        .signin
+          input(type='submit', value='Regist')
