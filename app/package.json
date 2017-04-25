@@ -7,16 +7,17 @@
   },
   "dependencies": {
     "body-parser": "~1.17.1",
+    "connect-flash": "",
+    "connect-mongo": "0.8.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "express": "^4.15.2",
+    "express-session": "",
     "jade": "~1.11.0",
+    "mongodb": "2.2.19",
     "morgan": "~1.8.1",
     "serve-favicon": "~2.4.2",
-    "mongodb": "2.2.19",
-    "express-session": "",
-    "connect-mongo": "0.8.2",
-    "connect-flash": ""    
+    "mysql": "latest"
   },
   "description": "demo",
   "main": "app.js",

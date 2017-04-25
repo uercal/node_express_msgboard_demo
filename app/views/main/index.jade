@@ -1,0 +1,49 @@
+
+doctype html
+head
+    title &#x7559;&#x8A00;&#x677F;
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    link(rel='stylesheet', href='/assets/css/index.css')
+    script(src='/assets/js/index.js')
+    script(src='/js/jquery.js')
+#msgBox
+    form(action='/add',method='GET')
+        div
+            h2(style='width:430px;') &#x6765; , &#x8BF4;&#x8BF4;&#x4F60;&#x5728;&#x505A;&#x4EC0;&#x4E48; , &#x60F3;&#x4EC0;&#x4E48;
+            span#logout(style='width:30px;height:27px;float:right;bottom:27px;position:relative;background-color:red;',onclick="window.location.href='/logout'")
+        div
+            input#userName.f-text(value='')
+            p#face
+                img.current(src='/assets/img/face1.gif')
+                img(src='/assets/img/face2.gif')
+                img(src='/assets/img/face3.gif')
+                img(src='/assets/img/face4.gif')
+                img(src='/assets/img/face5.gif')
+                img(src='/assets/img/face6.gif')
+                img(src='/assets/img/face7.gif')
+                img(src='/assets/img/face8.gif')
+        div
+            textarea#conBox.f-text
+        .tr
+            p
+                span.countTxt &#x8FD8;&#x80FD;&#x8F93;&#x5165;
+                strong.maxNum 140
+                span &#x4E2A;&#x5B57;
+                input#sendBtn(type='button', value='', title='快捷键 Ctrl+Enter')
+    .list
+        h3
+            span &#x5927;&#x5BB6;&#x5728;&#x8BF4;
+        ul
+            - var infos = keys
+            each item , inde in infos
+                li
+                   .userPic
+                        img(src="#{item.head_pic}")
+                   .content
+                       .userName
+                           a(href='javascript:;') #{item.username}
+                       .msgInfo #{item.content}
+                       .times
+                           p #{item.created_at}
+                           a.del(href='javascript:;')
+                               span(onclick='del_msg(#{item.id})') &#x5220;&#x9664;

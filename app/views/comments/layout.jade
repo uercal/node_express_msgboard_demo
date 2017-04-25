@@ -6,6 +6,23 @@ head
         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }    
     link(href='/comments/css/style.css', rel='stylesheet', type='text/css')    
     script(src='/comments/jquery.js')
+    script.
+        $(function(){
+        var res = "#{msg}";
+        switch(res){
+        case 'regno':
+            alert('用户名已存在');
+            break;
+        case 'regok':
+            alert('注册成功');
+            break;
+        case 'error':
+            alert('用户名或密码错误');
+            break;
+        default:
+
+        }
+        });
   body
     block content
   

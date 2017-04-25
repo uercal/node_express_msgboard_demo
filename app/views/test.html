@@ -1,12 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+
+doctype html
+head
+    title &#x7559;&#x8A00;&#x677F;
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    link(rel='stylesheet', href='/assets/css/index.css')
+    script(src='/assets/js/ajax.js')
+    script(src='/assets/js/index.js')
+#msgBox
+    form
+        h2 &#x6765; , &#x8BF4;&#x8BF4;&#x4F60;&#x5728;&#x505A;&#x4EC0;&#x4E48; , &#x60F3;&#x4EC0;&#x4E48;
+        div
+            input#userName.f-text(value='')
+            p#face
+                img.current(src='/assets/img/face1.gif')
+                img(src='/assets/img/face2.gif')
+                img(src='/assets/img/face3.gif')
+                img(src='/assets/img/face4.gif')
+                img(src='/assets/img/face5.gif')
+                img(src='/assets/img/face6.gif')
+                img(src='/assets/img/face7.gif')
+                img(src='/assets/img/face8.gif')
+        div
+            textarea#conBox.f-text
+        .tr
+            p
+                span.countTxt &#x8FD8;&#x80FD;&#x8F93;&#x5165;
+                strong.maxNum 140
+                span &#x4E2A;&#x5B57;
+                input#sendBtn(type='button', value='', title='快捷键 Ctrl+Enter')
+    .list
+        h3
+            span &#x5927;&#x5BB6;&#x5728;&#x8BF4;
+        ul
+
+                li
+                    .userPic
+                        img(src="")
+                    .content
+                        .userName
+                            a(href='javascript:;') item.username
+                        .msgInfo infos.content
+                        .times
+                            span infos.created_at
+                            a.del(href='javascript:;')
+                                span(onclick='del_msg(infos.id)') &#x5220;&#x9664;

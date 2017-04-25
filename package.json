@@ -9,7 +9,8 @@
   "author": "uercal",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "merge-descriptors": "^1.0.1"
   },
   "devDependencies": {}
 }

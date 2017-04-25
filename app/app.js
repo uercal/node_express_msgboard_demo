@@ -34,8 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-app.use('/', index);
-app.use('/users', users);
+
 app.use(session({
   resave: false,
   saveUninitialized: true,
@@ -50,12 +49,8 @@ app.use(session({
 }));
 
 
-
-
-
-
 app.use(flash());
-
+app.use('/', index);
 
 app.use('/comment', comments);
 

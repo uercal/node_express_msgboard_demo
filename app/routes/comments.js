@@ -13,25 +13,33 @@ var crypto = require('crypto'),
 
 /* 登录 */
 router.get('/',function(req,res,next){
-    res.render('comments/index',{title:'登录',success: req.flash('success').toString()});
+    res.render('comments/index',{title:'登录',msg: req.flash('msg').toString()});
 });
 
 router.post('/',function(req,res,next){
     var name = req.body.username;
     var password = req.body.password;
-    var md5 = md5.createHash(password).digest('hex');
+
+    var md5 = crypto.createHash('md5');
+    password = md5.update(req.body.password).digest('hex');
+
     var user = new User({
         name:name,
         password:password
     });
-    User.get(user.name,function(err,user){
-        if(user.password==password){
-            req.session.user=user;
-            req.flash('name',user.name);
-            res.redirect('/');
+    User.get(user.name,function(err,dbuser){
+        if(dbuser!=null){
+            if(dbuser.password==password){
+                req.session.user=dbuser;
+                req.flash('name',user.name);
+                res.redirect('/');
+            }else{
+                req.flash('msg','error');
+                res.redirect('/comment');
+            }
         }else{
-            req.flash('success','error');
-            res.redirect('/comments');
+            req.flash('msg','error');
+            res.redirect('/comment');
         }
     });
 
@@ -40,7 +48,7 @@ router.post('/',function(req,res,next){
 
 /* 注册 */ 
 router.get('/reg',function(req,res){
-    res.render('comments/reg',{title:'注册',error:req.flash('error').toString()});
+    res.render('comments/reg',{title:'注册',msg:req.flash('msg').toString()});
 });
 
 
@@ -62,7 +70,7 @@ router.post('/reg', function (req, res) {
       return res.redirect('/comment/reg');
     }
     if (user) {
-      req.flash('error', '用户已存在!');
+      req.flash('msg', 'regno');
       return res.redirect('/comment/reg');//返回注册页
     }
     //如果不存在则新增用户
@@ -72,7 +80,7 @@ router.post('/reg', function (req, res) {
         return res.redirect('comment/reg');//注册失败返回主册页
       }
       //req.session.user = newUser;//用户信息存入 session
-      req.flash('success', 'ok');
+      req.flash('msg', 'regok');
       res.redirect('/comment');//注册成功后返回登录页
     });
   });

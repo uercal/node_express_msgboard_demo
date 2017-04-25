@@ -1,17 +1,8 @@
 extends layout
 
 block content
+    
 
-    script.
-      $(document).ready(function(c) {
-      $('.close').on('click', function(c){
-      $('.login-form').fadeOut('slow', function(c){
-      $('.login-form').remove();
-      });
-      });
-      });
-
-    h1(style='color:red;font-size:80%;')  #{error}
     h1  Reg Form
     .login-form
       .close  
@@ -29,3 +20,6 @@ block content
           input(type='password', name='password', placeholder='Password', onfocus="this.value = '';", onblur="if (this.value == '') {this.value = 'Password';}")
         .signin
           input(type='submit', value='Regist')
+    
+    
+    
